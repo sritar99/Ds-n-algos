@@ -1,0 +1,7 @@
+class Solution:
+    import math
+    def mySqrt(self, x: int) -> int:
+        if x<0:
+            return 0
+        else:
+            return math.trunc(math.sqrt(x))
