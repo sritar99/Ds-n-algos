@@ -1,0 +1,48 @@
+class Solution {
+    public int compress(char[] chars) {
+        
+        int fi=0;
+        String ch="";
+        
+        for(int i=0;i<chars.length;i++)
+        {
+            
+            char c = chars[i];
+            int len=0;
+            if(!Character.isWhitespace(c))
+            {
+                for(int j=i;j<chars.length;j++)
+                {
+                    if(Character.isWhitespace(chars[j]))
+                        break;
+                    
+                    if(chars[j]==c)
+                    {
+                        chars[j]=' ';
+                        len++;
+                    }
+                    else
+                        break;
+                }
+                
+                if(len>1)
+                ch=ch+c+len;
+                else
+                    ch=ch+c;
+            }
+        }
+        
+    char a[] = ch.toCharArray();
+        
+        for(int i=0;i<a.length;i++)
+        {
+             chars[i] = a[i];
+            // System.out.println(a[i]);
+        }
+        
+            return a.length;
+            
+            
+        }
+            
+    }
