@@ -1,0 +1,25 @@
+class Solution:
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        res=0
+        i=0
+        Key=dict([('I',1),('V',5),('X',10),('L',50),('C',100),('D',500),('M',1000)])
+        while i <len(s):
+            x=0
+            y=0
+            x= Key[s[i]]
+            if(i+1 < len(s)):
+                y=Key[s[i+1]]
+            if x > y:
+                res=res+x
+                i=i+1
+            elif x < y:
+                res= res+y-x
+                i=i+2
+            else:
+                res=res+x
+                i=i+1
+        return res
