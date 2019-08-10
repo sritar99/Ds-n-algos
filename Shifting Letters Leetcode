@@ -1,0 +1,9 @@
+class Solution:
+    def shiftingLetters(self, S: 'str', shifts: 'List[int]') -> 'str':
+        total = sum(shifts)
+        S = list(S)
+        asci = ord('a')
+        for i in range(len(S)):
+            S[i] = chr(asci + (ord(S[i]) - asci + total) % 26)
+            total -= shifts[i]
+        return ''.join(S)
